@@ -13,7 +13,7 @@ ADD nginx_signing.key /tmp/nginx_signing.key
 RUN apt-key add /tmp/nginx_signing.key
 
 # Append the nginx.org sources to the /etc/apt/sources.list file
-RUN echo "deb http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list &&
+RUN echo "deb http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list && \
     echo "deb-src http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list
 
 # Update the local package database
@@ -30,6 +30,7 @@ EXPOSE 80 443
 
 # Set the default command for this image 
 # (with extra configuration option to turn off nginx's daemon mode)
-CMD["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
+
 
 
